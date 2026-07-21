@@ -16,8 +16,9 @@ import ceo1 from "@/assets/ceo-1.png";
 import ceo2 from "@/assets/ceo-2.png";
 import staffAll from "@/assets/staff all.png";
 /* ── Main product images (ChatGPT renders — full scene) ── */
-import pCoconut    from "@/assets/ChatGPT Image Jun 26, 2026, 10_33_52 AM.png";
-import pWatermelon from "@/assets/ChatGPT Image Jun 26, 2026, 10_24_19 AM.png";
+import pCoconut      from "@/assets/WhatsApp Image 2026-07-21 at 8.56.19 AM.jpeg";
+import pGreenCoconut from "@/assets/ChatGPT Image Jun 26, 2026, 10_33_52 AM.png";
+import pWatermelon   from "@/assets/ChatGPT Image Jun 26, 2026, 10_24_19 AM.png";
 import pTomato     from "@/assets/ChatGPT Image Jun 26, 2026, 10_13_57 AM.png";
 import pCucumber   from "@/assets/ChatGPT Image Jun 26, 2026, 10_17_47 AM.png";
 import pBanana     from "@/assets/ChatGPT Image Jun 26, 2026, 11_44_23 AM.png";
@@ -170,7 +171,7 @@ function Hero() {
 
         <motion.div
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 1.1 }}
-          className="mt-10 flex flex-col items-center gap-4 sm:flex-row"
+          className="mt-8 flex flex-col items-center gap-4 sm:flex-row"
         >
           <a href="#products" className="group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground glow-royal transition hover:scale-[1.04]">
             Explore Products <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
@@ -179,6 +180,8 @@ function Hero() {
             Our Journey
           </a>
         </motion.div>
+
+
       </motion.div>
 
       <motion.div
@@ -281,6 +284,7 @@ function Products() {
         { name: "Husked Coconut",    img: vHusked,      desc: "Fully husked, export-ready coconut with thick white flesh. Ideal for retail markets worldwide." },
         { name: "Semi-Husked",       img: vSemiHusked,  desc: "Partially husked for extended shelf life. Popular in Middle East and Asian markets." },
         { name: "Dehusked",          img: vDehusked,    desc: "Shell-only coconut, cleaned and graded. Used for copra, oil and industrial purposes." },
+        { name: "Tender Coconut", img: pGreenCoconut, desc: "Fresh whole green tender coconut with full husk intact. Ideal for maximum natural shelf life and premium presentation." },
       ],
     },
     {
@@ -469,17 +473,17 @@ function Products() {
                       <div style={{ fontSize: 9, letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(43,140,255,0.8)" }}>Select a variety</div>
                       <div style={{ marginTop: 4, fontSize: 18, fontWeight: 700, background: "linear-gradient(135deg,#4facfe,#00f2fe)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>{p.name}</div>
                     </div>
-                    <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                    <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
                       {p.varieties.map((v) => (
                         <button
                           key={v.name}
                           onClick={() => setModalData({ productName: p.name, variety: v })}
                           style={{
                             width: "100%",
-                            borderRadius: 10,
-                            padding: "10px 14px",
+                            borderRadius: 8,
+                            padding: "8px 12px",
                             textAlign: "left",
-                            fontSize: 13,
+                            fontSize: 12,
                             fontWeight: 500,
                             background: "rgba(43,140,255,0.1)",
                             border: "1px solid rgba(43,140,255,0.25)",
@@ -835,22 +839,45 @@ function CertModal({ cert, onClose }: CertModalProps) {
   );
 }
 
+/* ---------- CERT CARD COMPONENT ---------- */
+function CertCard({ c, i }: { c: any; i: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: i * 0.08 }}
+      className="relative aspect-[4/5] group"
+    >
+      <div
+        className="absolute inset-0 flex flex-col items-center justify-center gap-5 p-6 rounded-3xl glass transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-[0_20px_40px_rgba(43,140,255,0.15)] border border-white/5 group-hover:border-electric/30"
+      >
+        <div className="grid h-16 w-16 place-items-center rounded-2xl bg-primary/15 text-electric transition-transform group-hover:scale-110">
+          <Award className="h-7 w-7" />
+        </div>
+        <div className="text-center">
+          <div className="text-2xl font-bold text-gradient-royal">{c.code}</div>
+          <div className="mt-1 text-xs uppercase tracking-[0.2em] text-silver/60">Verified Certification</div>
+        </div>
+        <div className="absolute bottom-4 right-4 text-electric">
+          <BadgeCheck className="h-5 w-5" />
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 /* ---------- CERTIFICATIONS ---------- */
 function Certifications() {
-  const [activeCert, setActiveCert] = useState<{ code: string; n: string; d: string; img: string } | null>(null);
-
   const certs = [
-    { code: "IEC",  n: "Import Export Code",         d: "ABPCS0605L · Govt. of India",  img: cert1 },
-    { code: "APEDA",n: "RCMC Merchant Exporter",      d: "RCMC/APEDA/22919/2025-2026",   img: cert2 },
-    { code: "CDB",  n: "Coconut Development Board",   d: "RCMC/CDB/02674/2025-2026",     img: cert3 },
-    { code: "MSME", n: "Udyam Registered Enterprise", d: "UDYAM-TN-07-0110386",          img: cert4 },
+    { code: "IEC",   n: "Import Export Code",         d: "Govt. of India",       img: cert1 },
+    { code: "APEDA", n: "RCMC Merchant Exporter",     d: "Govt. of India",       img: cert2 },
+    { code: "UDYAM", n: "Udyam Registration",         d: "Ministry of MSME",     img: cert3 },
+    { code: "MSME",  n: "MSME Registered Enterprise", d: "Govt. of India",       img: cert4 },
   ];
 
   return (
     <>
-      {/* ── Lightbox Modal ── */}
-      {activeCert && <CertModal cert={activeCert} onClose={() => setActiveCert(null)} />}
-
       <section id="certifications" className="relative overflow-hidden py-32">
         <div className="absolute inset-0 -z-10 bg-radial-royal" />
         <div className="mx-auto max-w-7xl px-6">
@@ -862,87 +889,7 @@ function Certifications() {
 
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {certs.map((c, i) => (
-              <motion.div
-                key={c.code}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="cert-flip-wrapper group relative aspect-[4/5]"
-                style={{ perspective: "1000px" }}
-              >
-                {/* Inner card — rotates on hover */}
-                <div
-                  className="cert-flip-inner relative h-full w-full rounded-3xl transition-transform duration-700 ease-in-out group-hover:[transform:rotateY(180deg)]"
-                  style={{ transformStyle: "preserve-3d" }}
-                >
-                  {/* ── FRONT FACE ── */}
-                  <div
-                    className="absolute inset-0 flex flex-col items-center justify-center gap-5 p-6 rounded-3xl glass"
-                    style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" }}
-                  >
-                    <div className="grid h-16 w-16 place-items-center rounded-2xl bg-primary/15 text-electric">
-                      <Award className="h-7 w-7" />
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-gradient-royal">{c.code}</div>
-                      <div className="mt-1 text-xs uppercase tracking-[0.2em] text-silver/60">Verified Certification</div>
-                    </div>
-                    <div className="absolute bottom-4 right-4 text-electric">
-                      <BadgeCheck className="h-5 w-5" />
-                    </div>
-                    <div className="absolute bottom-4 left-4 text-silver/30 text-[10px] uppercase tracking-widest">hover to view</div>
-                  </div>
-
-                  {/* ── BACK FACE — certificate image + click to expand ── */}
-                  <div
-                    className="absolute inset-0 rounded-3xl overflow-hidden group/back"
-                    onClick={() => setActiveCert(c)}
-                    style={{
-                      backfaceVisibility: "hidden",
-                      WebkitBackfaceVisibility: "hidden",
-                      transform: "rotateY(180deg)",
-                      background: "#ffffff",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      padding: "12px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <img
-                      src={c.img}
-                      alt={`${c.code} Certificate`}
-                      style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }}
-                    />
-                    {/* Click-to-expand overlay hint */}
-                    <div
-                      style={{
-                        position: "absolute",
-                        inset: 0,
-                        background: "rgba(0,0,0,0)",
-                        display: "flex",
-                        alignItems: "flex-end",
-                        justifyContent: "center",
-                        paddingBottom: "12px",
-                        transition: "background 0.2s",
-                      }}
-                      className="hover:!bg-black/10"
-                    >
-                      <span style={{
-                        fontSize: "10px",
-                        fontWeight: 600,
-                        letterSpacing: "0.12em",
-                        textTransform: "uppercase",
-                        color: "rgba(0,0,0,0.35)",
-                        background: "rgba(255,255,255,0.8)",
-                        padding: "3px 10px",
-                        borderRadius: "999px",
-                      }}>Click to expand</span>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+              <CertCard key={c.code} c={c} i={i} />
             ))}
           </div>
         </div>
