@@ -10,14 +10,21 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as ShippingPolicyRouteImport } from './routes/shipping-policy'
 import { Route as RefundPolicyRouteImport } from './routes/refund-policy'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as PricingPolicyRouteImport } from './routes/pricing-policy'
 import { Route as CancellationPolicyRouteImport } from './routes/cancellation-policy'
 import { Route as IndexRouteImport } from './routes/index'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShippingPolicyRoute = ShippingPolicyRouteImport.update({
+  id: '/shipping-policy',
+  path: '/shipping-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RefundPolicyRoute = RefundPolicyRouteImport.update({
@@ -28,6 +35,11 @@ const RefundPolicyRoute = RefundPolicyRouteImport.update({
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
   id: '/privacy-policy',
   path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingPolicyRoute = PricingPolicyRouteImport.update({
+  id: '/pricing-policy',
+  path: '/pricing-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CancellationPolicyRoute = CancellationPolicyRouteImport.update({
@@ -44,23 +56,29 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cancellation-policy': typeof CancellationPolicyRoute
+  '/pricing-policy': typeof PricingPolicyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/refund-policy': typeof RefundPolicyRoute
+  '/shipping-policy': typeof ShippingPolicyRoute
   '/terms': typeof TermsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cancellation-policy': typeof CancellationPolicyRoute
+  '/pricing-policy': typeof PricingPolicyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/refund-policy': typeof RefundPolicyRoute
+  '/shipping-policy': typeof ShippingPolicyRoute
   '/terms': typeof TermsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/cancellation-policy': typeof CancellationPolicyRoute
+  '/pricing-policy': typeof PricingPolicyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/refund-policy': typeof RefundPolicyRoute
+  '/shipping-policy': typeof ShippingPolicyRoute
   '/terms': typeof TermsRoute
 }
 export interface FileRouteTypes {
@@ -68,30 +86,38 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/cancellation-policy'
+    | '/pricing-policy'
     | '/privacy-policy'
     | '/refund-policy'
+    | '/shipping-policy'
     | '/terms'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/cancellation-policy'
+    | '/pricing-policy'
     | '/privacy-policy'
     | '/refund-policy'
+    | '/shipping-policy'
     | '/terms'
   id:
     | '__root__'
     | '/'
     | '/cancellation-policy'
+    | '/pricing-policy'
     | '/privacy-policy'
     | '/refund-policy'
+    | '/shipping-policy'
     | '/terms'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CancellationPolicyRoute: typeof CancellationPolicyRoute
+  PricingPolicyRoute: typeof PricingPolicyRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   RefundPolicyRoute: typeof RefundPolicyRoute
+  ShippingPolicyRoute: typeof ShippingPolicyRoute
   TermsRoute: typeof TermsRoute
 }
 
@@ -102,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/terms'
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shipping-policy': {
+      id: '/shipping-policy'
+      path: '/shipping-policy'
+      fullPath: '/shipping-policy'
+      preLoaderRoute: typeof ShippingPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/refund-policy': {
@@ -116,6 +149,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy-policy'
       fullPath: '/privacy-policy'
       preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing-policy': {
+      id: '/pricing-policy'
+      path: '/pricing-policy'
+      fullPath: '/pricing-policy'
+      preLoaderRoute: typeof PricingPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cancellation-policy': {
@@ -138,8 +178,10 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CancellationPolicyRoute: CancellationPolicyRoute,
+  PricingPolicyRoute: PricingPolicyRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   RefundPolicyRoute: RefundPolicyRoute,
+  ShippingPolicyRoute: ShippingPolicyRoute,
   TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport
