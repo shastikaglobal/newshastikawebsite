@@ -198,7 +198,7 @@ function Hero() {
 
 
 /* ─── Product variety modal ─── */
-type Variety = { name: string; img: string; desc: string };
+type Variety = { name: string; img: string; desc: string; price?: string };
 type ProductModalData = { productName: string; variety: Variety };
 
 function ProductModal({ data, onClose }: { data: ProductModalData | null; onClose: () => void }) {
@@ -256,6 +256,26 @@ function ProductModal({ data, onClose }: { data: ProductModalData | null; onClos
         {/* Body */}
         <div style={{ padding: "20px" }}>
           <p style={{ fontSize: 14, color: "rgba(217,228,245,0.7)", lineHeight: 1.6, margin: 0 }}>{variety.desc}</p>
+          
+          {variety.price && (
+            <div style={{
+              marginTop: 16,
+              padding: "12px 16px",
+              background: "rgba(255,255,255,0.03)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              borderRadius: "12px",
+              backdropFilter: "blur(10px)"
+            }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+                <span style={{ fontSize: 13, color: "rgba(217,228,245,0.6)", fontWeight: 500 }}>{variety.name}</span>
+                <span style={{ fontSize: 14, color: "#fff", fontWeight: 700 }}>{variety.price}</span>
+              </div>
+              <div style={{ fontSize: 10, color: "rgba(217,228,245,0.4)", lineHeight: 1.4 }}>
+                * Prices shown are indicative for website display. For detailed export pricing based on quantity, packaging, and destination, please request a quote on WhatsApp.
+              </div>
+            </div>
+          )}
+
           <a
             href={waUrl}
             target="_blank"
@@ -281,43 +301,43 @@ function Products() {
     {
       name: "Coconut", tagline: "Sweet, hydrating, harvested at peak.", img: pCoconut,
       varieties: [
-        { name: "Husked Coconut",    img: vHusked,      desc: "Fully husked, export-ready coconut with thick white flesh. Ideal for retail markets worldwide." },
-        { name: "Semi-Husked",       img: vSemiHusked,  desc: "Partially husked for extended shelf life. Popular in Middle East and Asian markets." },
-        { name: "Dehusked",          img: vDehusked,    desc: "Shell-only coconut, cleaned and graded. Used for copra, oil and industrial purposes." },
-        { name: "Tender Coconut", img: pGreenCoconut, desc: "Fresh whole green tender coconut with full husk intact. Ideal for maximum natural shelf life and premium presentation." },
+        { name: "Husked Coconut",    img: vHusked,      desc: "Fully husked, export-ready coconut with thick white flesh. Ideal for retail markets worldwide.", price: "₹45 / Piece" },
+        { name: "Semi-Husked",       img: vSemiHusked,  desc: "Partially husked for extended shelf life. Popular in Middle East and Asian markets.", price: "₹25 / Piece" },
+        { name: "Dehusked",          img: vDehusked,    desc: "Shell-only coconut, cleaned and graded. Used for copra, oil and industrial purposes.", price: "₹24 / Piece" },
+        { name: "Tender Coconut", img: pGreenCoconut, desc: "Fresh whole green tender coconut with full husk intact. Ideal for maximum natural shelf life and premium presentation.", price: "₹25 / Piece" },
       ],
     },
     {
       name: "Black Diamond Watermelon", tagline: "Vibrant red interior, thin rind. Long shelf life — suited for FCL export.", img: pWatermelon,
       varieties: [
-        { name: "Black Diamond Watermelon", img: pWatermelon, desc: "Vibrant red interior, thin rind. Long shelf life — suited for FCL export." },
+        { name: "Black Diamond Watermelon", img: pWatermelon, desc: "Vibrant red interior, thin rind. Long shelf life — suited for FCL export.", price: "₹10 / Kg" },
       ],
     },
     {
       name: "Tomato", tagline: "Bright, firm, export-grade.", img: pTomato,
       varieties: [
-        { name: "Tomato", img: pTomato, desc: "Farm-fresh tomatoes, packed with natural goodness and essential nutrients. Perfect for everyday meals." },
+        { name: "Tomato", img: pTomato, desc: "Farm-fresh tomatoes, packed with natural goodness and essential nutrients. Perfect for everyday meals.", price: "₹12 / Kg" },
       ],
     },
     {
       name: "Cucumber", tagline: "Crisp and consistent year-round.", img: pCucumber,
       varieties: [
-        { name: "Cucumber", img: pCucumber, desc: "Standard export cucumber. Uniform size, smooth skin, ideal for bulk retail packaging." },
+        { name: "Cucumber", img: pCucumber, desc: "Standard export cucumber. Uniform size, smooth skin, ideal for bulk retail packaging.", price: "₹5 / Kg" },
       ],
     },
     {
       name: "Banana", tagline: "Optimal ripeness on arrival.", img: pBanana,
       varieties: [
-        { name: "Cavendish Banana", img: pBanana,    desc: "World's most exported banana variety. Shipped green, ripens perfectly in destination markets." },
-        { name: "Baby Banana",    img: pBanana,    desc: "Small, sweet, and premium. Popular in specialty markets." },
-        { name: "Nendran Banana", img: vNendran,   desc: "Traditional Kerala variety. Prized for cooking and chips — high demand in diaspora markets." },
-        { name: "Red Banana",     img: vRedBanana, desc: "Soft, sweet Red Banana. Niche export to health-conscious consumers in Europe and Japan." },
+        { name: "Cavendish Banana", img: pBanana,    desc: "World's most exported banana variety. Shipped green, ripens perfectly in destination markets.", price: "₹30 / Kg" },
+        { name: "Baby Banana",    img: pBanana,    desc: "Small, sweet, and premium. Popular in specialty markets.", price: "₹80 / Kg" },
+        { name: "Nendran Banana", img: vNendran,   desc: "Traditional Kerala variety. Prized for cooking and chips — high demand in diaspora markets.", price: "₹45 / Kg" },
+        { name: "Red Banana",     img: vRedBanana, desc: "Soft, sweet Red Banana. Niche export to health-conscious consumers in Europe and Japan.", price: "₹52 / Kg" },
       ],
     },
     {
       name: "Pumpkin", tagline: "Thick walls, long shelf life.", img: pPumpkin,
       varieties: [
-        { name: "Green Pumpkin", img: pPumpkin, desc: "Mild, buttery flesh. Popular in Middle East stews and European soups." },
+        { name: "Green Pumpkin", img: pPumpkin, desc: "Mild, buttery flesh. Popular in Middle East stews and European soups.", price: "₹6 / Kg" },
       ],
     },
   ];
