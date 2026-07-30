@@ -23,10 +23,12 @@ function PricingPolicy() {
             <section>
               <p>At Shastika Global Impex Pvt. Ltd., we offer competitive pricing for our premium agricultural products. While final prices may vary based on market conditions, typical price ranges include:</p>
               <ul className="list-disc pl-5 mt-4 mb-4 space-y-2">
-                <li><strong>Coconuts (Semi-Husked/Fully Husked):</strong> $300 - $500 per Metric Ton</li>
-                <li><strong>Spices (Turmeric, Black Pepper, etc.):</strong> $1,500 - $4,500 per Metric Ton</li>
-                <li><strong>Rice (Basmati/Non-Basmati):</strong> $400 - $1,200 per Metric Ton</li>
-                <li><strong>Fresh Vegetables (Onions, Potatoes, etc.):</strong> $250 - $600 per Metric Ton</li>
+                <li><strong>Coconuts (Semi-Husked/Fully Husked/Tender):</strong> ₹25 - ₹45 per piece or $300 - $500 per Metric Ton</li>
+                <li><strong>Bananas (Regular/Baby/Nendran/Red):</strong> ₹20 - ₹60 per kg</li>
+                <li><strong>Watermelon (Black/Regular):</strong> ₹15 - ₹30 per kg</li>
+                <li><strong>Tomato:</strong> ₹25 - ₹50 per kg</li>
+                <li><strong>Pumpkin (White/Yellow):</strong> ₹15 - ₹25 per kg</li>
+                <li><strong>Cucumber:</strong> ₹20 - ₹35 per kg</li>
               </ul>
               <p className="mt-4">Prices may fluctuate depending on order quantity, packaging requirements, shipping method, and seasonal market availability.</p>
             </section>
