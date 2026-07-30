@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 
-export const Route = createFileRoute("/terms")({
+export const Route = createFileRoute("/terms-and-conditions")({
   component: Terms,
 });
 
@@ -17,7 +17,7 @@ function Terms() {
         </div>
         
         <div className="rounded-3xl glass p-8 sm:p-12">
-          <h1 className="text-4xl font-bold text-white mb-8"><span className="text-gradient-royal">Terms of Service</span></h1>
+          <h1 className="text-4xl font-bold text-white mb-8"><span className="text-gradient-royal">Terms & Conditions</span></h1>
           
           <div className="space-y-6 text-sm leading-relaxed">
             <section>

@@ -26,8 +26,12 @@ function ShippingPolicy() {
             </section>
 
             <section>
-              <h2 className="text-lg font-semibold text-white mb-3">2. Processing Time</h2>
-              <p>All export orders require a standard processing time for quality inspection, packaging, customs documentation, and port clearance. The exact processing time will be communicated during the order confirmation stage and typically ranges from 7 to 15 business days before vessel departure.</p>
+              <h2 className="text-lg font-semibold text-white mb-3">2. Processing & Transit Times</h2>
+              <p>All export orders require a standard processing time for quality inspection, packaging, customs documentation, and port clearance. We offer both domestic and international shipping with the following transit timelines:</p>
+              <ul className="list-disc pl-5 mt-4 space-y-2">
+                <li><strong>Domestic Shipping:</strong> 2-5 days</li>
+                <li><strong>International Shipping:</strong> 7-14 days</li>
+              </ul>
             </section>
 
             <section>

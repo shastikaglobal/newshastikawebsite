@@ -21,19 +21,18 @@ function PricingPolicy() {
           
           <div className="space-y-6 text-sm leading-relaxed">
             <section>
-              <p>At Shastika Global Impex Pvt. Ltd., product prices are quotation-based and may vary depending on:</p>
+              <p>At Shastika Global Impex Pvt. Ltd., we offer competitive pricing for our premium agricultural products. While final prices may vary based on market conditions, typical price ranges include:</p>
               <ul className="list-disc pl-5 mt-4 mb-4 space-y-2">
-                <li>Product type</li>
-                <li>Order quantity</li>
-                <li>Packaging requirements</li>
-                <li>Destination country</li>
-                <li>Shipping method</li>
-                <li>Seasonal market availability</li>
+                <li><strong>Coconuts (Semi-Husked/Fully Husked):</strong> $300 - $500 per Metric Ton</li>
+                <li><strong>Spices (Turmeric, Black Pepper, etc.):</strong> $1,500 - $4,500 per Metric Ton</li>
+                <li><strong>Rice (Basmati/Non-Basmati):</strong> $400 - $1,200 per Metric Ton</li>
+                <li><strong>Fresh Vegetables (Onions, Potatoes, etc.):</strong> $250 - $600 per Metric Ton</li>
               </ul>
+              <p className="mt-4">Prices may fluctuate depending on order quantity, packaging requirements, shipping method, and seasonal market availability.</p>
             </section>
 
             <section>
-              <p>Final pricing will be provided after reviewing your requirements. Customers can request a customized quotation through our "Request Quote" option or by contacting our sales team.</p>
+              <p>Final customized pricing will be provided after reviewing your exact requirements. Customers can request a formal quotation through our "Request Quote" option or by contacting our sales team directly.</p>
             </section>
 
             <section className="pt-6 border-t border-white/10">

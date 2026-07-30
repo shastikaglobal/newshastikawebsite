@@ -37,7 +37,7 @@ function RefundPolicy() {
 
             <section>
               <h2 className="text-lg font-semibold text-white mb-3">4. Refund Processing</h2>
-              <p>Approved refunds will be processed through the original method of payment via TT (Telegraphic Transfer) or LC (Letter of Credit) amendments within 14-21 business days after the claim is settled.</p>
+              <p>Approved refunds will be processed through the original method of payment via TT (Telegraphic Transfer) or LC (Letter of Credit) amendments within a strict 7-day refund timeline after the claim is settled.</p>
             </section>
 
             <section className="pt-6 border-t border-white/10">
